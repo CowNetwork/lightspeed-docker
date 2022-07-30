@@ -23,18 +23,21 @@ jobs:
       - name: build and push ingest
         uses: docker/build-push-action@v2
         with:
+          context: ./Project-Lightspeed/ingest
           push: true
           file: ./images/ingest/Dockerfile
           tags: ghcr.io/cownetwork/lightspeed-ingest:${{ steps.tag.outputs.tag }}
       - name: build and push webrtc
         uses: docker/build-push-action@v2
         with:
+          context: ./Project-Lightspeed/webrtc
           push: true
           file: ./images/webrtc/Dockerfile
           tags: ghcr.io/cownetwork/lightspeed-webrtc:${{ steps.tag.outputs.tag }}
       - name: build and push frontend
         uses: docker/build-push-action@v2
         with:
+          context: ./Project-Lightspeed/frontend
           push: true
           file: ./images/frontend/Dockerfile
           tags: ghcr.io/cownetwork/lightspeed-frontend:${{ steps.tag.outputs.tag }}
